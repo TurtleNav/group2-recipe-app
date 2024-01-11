@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
 const routes = require("./controllers");
@@ -11,10 +12,10 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 app.engine("handlebars", hbs.engine);
-app.set("view engine", "handlebars ");
+app.set("view engine", "handlebars");
 
 const sess = {
-  secret: "Super secret secret",
+  secret: process.env.SESSION_SECRET,
   cookie: {},
   resave: false,
   saveUninitialized: true,
