@@ -1,8 +1,8 @@
-const viewRouter = require("express").Router();
+const viewRouter = require('express').Router();
 
-viewRouter.get("/", async (req, res) => {
+viewRouter.get('/', async (req, res) => {
   try {
-    res.render("all");
+    res.render('all');
   } catch (err) {
     res.status(500).json(err);
   }

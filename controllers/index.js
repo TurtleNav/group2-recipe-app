@@ -1,5 +1,5 @@
-const router = require("express").Router();
-const viewRoutes = require("./viewRoutes");
+const router = require('express').Router();
+const viewRoutes = require('./viewRoutes');
 
-router.use("/", viewRoutes);
+router.use('/', viewRoutes);
 module.exports = router;
