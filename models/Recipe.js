@@ -14,6 +14,16 @@ Recipe.init(
     name: {
       type: DataTypes.STRING,
     },
+    calories: {
+      type: DataTypes.DECIMAL,
+    },
+    protein: {
+      type: DataTypes.DECIMAL,
+    },
+    carbs: {
+      type: DataTypes.DECIMAL,
+    },
+
   },
   {
     sequelize,
