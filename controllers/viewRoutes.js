@@ -8,4 +8,19 @@ viewRouter.get('/', async (req, res) => {
   }
 });
 
+viewRouter.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('login');
+});
+
+viewRouter.get('/signup', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('signup');
+});
 module.exports = viewRouter;
