@@ -11,7 +11,7 @@ const addRecipeNutrition = true;
 const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${userSearch}&maxCalories=${maxCalories}&number=${numberOfResults}&fillingredents=${fillingIngredients}&addRecipeNutrition=${addRecipeNutrition}&apiKey=${apiKey}`;
 
 let fetchedData = [];
-let nutritionInformation = [];
+let nutritionInformationRaw = [];
 
 fetch(apiUrl)
   .then(response => response.json())
@@ -19,11 +19,25 @@ fetch(apiUrl)
     fetchedData = data.results;
     fetchedData.forEach(recipe => {
       const nutritionInfo = recipe.nutrition; // Fixed the reference to nutrition
-      nutritionInformation.push(nutritionInfo); // Added the nutritionInfo to the array
+      nutritionInformationRaw.push(nutritionInfo); // Added the nutritionInfo to the array
     });
     
-    console.log(nutritionInformation[0].nutrients);
-     // Moved this line outside the forEach loop
+    console.log(nutritionInformationRaw)
+    console.log(nutritionInformationRaw[0].nutrients);
+    const mappedData = nutritionInformationRaw.map(recipe => {
+      const first9Nutrients = recipe.nutrients.slice(0, 9); // Save the first 9 objects in the nutrients property
+      const ingredients = recipe.ingredients; // Save the entire ingredients property
+    
+      return {
+        first9Nutrients,
+        ingredients,
+      };
+    });
+    
+    console.log(mappedData);
+
+   
+   
   })
   .catch(error => {
     console.error('Error fetching data:', error);
