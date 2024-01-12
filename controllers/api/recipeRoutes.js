@@ -10,6 +10,6 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   const newRecipeData = await Recipe.create(req.body);
 
-  res.json(newRecipeDataecipeData);
+  res.json(newRecipeData);
 });
 module.exports = router;
