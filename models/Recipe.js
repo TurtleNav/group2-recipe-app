@@ -15,13 +15,13 @@ Recipe.init(
       type: DataTypes.STRING,
     },
     calories: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL,
     },
     protein: {
-      type: DataTypes.STRING,
+      type: DataTypes.DECIMAL,
     },
     carbs: {
-      type: DataTypes.STRING,
+      type: DataTypes.DECIMAL,
     },
 
   },
