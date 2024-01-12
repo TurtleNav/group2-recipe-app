@@ -24,7 +24,6 @@ Recipe.init(
       type: DataTypes.STRING,
     },
 
-
   },
   {
     sequelize,
