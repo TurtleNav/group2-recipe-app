@@ -11,33 +11,35 @@ const addRecipeNutrition = true;
 const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${userSearch}&maxCalories=${maxCalories}&number=${numberOfResults}&fillingredents=${fillingIngredients}&addRecipeNutrition=${addRecipeNutrition}&apiKey=${apiKey}`;
 
 let fetchedData = [];
+let recipeInfo = [];
 let nutritionInformationRaw = [];
 
 fetch(apiUrl)
   .then(response => response.json())
   .then(data => {
     fetchedData = data.results;
-    fetchedData.forEach(recipe => {
-      const nutritionInfo = recipe.nutrition; // Fixed the reference to nutrition
-      nutritionInformationRaw.push(nutritionInfo); // Added the nutritionInfo to the array
-    });
-    
-    console.log(nutritionInformationRaw)
-    console.log(nutritionInformationRaw[0].nutrients);
-    const mappedData = nutritionInformationRaw.map(recipe => {
-      const first9Nutrients = recipe.nutrients.slice(0, 9); // Save the first 9 objects in the nutrients property
-      const ingredients = recipe.ingredients; // Save the entire ingredients property
-    
-      return {
-        first9Nutrients,
-        ingredients,
-      };
-    });
-    
-    console.log(mappedData);
+    recipeInfo = fetchedData.map(recipe => ({
+      id: recipe.id,
+      title: recipe.title,
+      image: recipe.image,
+      ingredients: recipe.nutrition.ingredients,
+      nutrition: recipe.nutrition.nutrients.slice(0, 9)
+     
+    }))
 
-   
-   
+    console.log(recipeInfo)
+      // const first9Nutrients = recipe.nutrients; 
+      // const first9Macros = first9Nutrients.map(macro => ({
+      //   name: macro.name,
+      //   amount: macro.amount
+      // }))
+      // // const first9Macros = // Save the first 9 objects in the nutrients property
+      // const ingredients = recipe.ingredients; // Save the entire ingredients property
+    
+      // return {
+      //   first9Macros,
+      //   ingredients,
+      // };
   })
   .catch(error => {
     console.error('Error fetching data:', error);
