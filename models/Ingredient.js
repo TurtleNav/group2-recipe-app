@@ -11,3 +11,5 @@ Ingredient.init({
 }
 );
 
+module.exports = Ingredient;
+
