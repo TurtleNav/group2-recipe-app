@@ -2,9 +2,13 @@ const apiKey = '8d3a74b58a844dd0880bad6638d783d0'; // Replace with your actual A
 
 const userSearch = 'pasta';
 const maxCalories = 700;
-const numberOfResults = 5;
+const numberOfResults = 2;
 
-const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${userSearch}&maxCalories=${maxCalories}&number=${numberOfResults}&apiKey=${apiKey}`;
+const fillingIngredients = true;
+const addRecipeNutrition = true;
+
+
+const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${userSearch}&maxCalories=${maxCalories}&number=${numberOfResults}&fillingredents=${fillingIngredients}&addRecipeNutrition=${addRecipeNutrition}&apiKey=${apiKey}`;
 
 let fetchedData = [];
 let nutritionInformation = [];
@@ -17,10 +21,13 @@ fetch(apiUrl)
       const nutritionInfo = recipe.nutrition; // Fixed the reference to nutrition
       nutritionInformation.push(nutritionInfo); // Added the nutritionInfo to the array
     });
-    console.log(nutritionInformation); // Moved this line outside the forEach loop
+    
+    console.log(nutritionInformation[0].nutrients);
+     // Moved this line outside the forEach loop
   })
   .catch(error => {
     console.error('Error fetching data:', error);
+    
   });
 
     // Process the fetched data here
