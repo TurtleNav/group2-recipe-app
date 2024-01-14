@@ -9,10 +9,21 @@ Recipe.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
+    title: {
+      type: DataTypes.STRING, // Up to 255 characters *SHOULD* be long enough for a recipe name
+    },
+    calories: {
+      type: DataTypes.INTEGER
+    },
+    carbs: {
+      type: DataTypes.CHAR(4) // Can never exceed the string of length 4: '100g'
+    },
+    fat: {
+      type: DataTypes.CHAR(4) // Can never exceed the string of length 4: '100g'
+    },
+    protein: {
+      type: DataTypes.CHAR(4) // Can never exceed the string of length 4: '100g'
     },
   },
   {
