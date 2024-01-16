@@ -16,7 +16,7 @@ const recipeData = [
   },
   {
     title: 'Chocolate Silk Pie with Marshmallow Meringue',
-    url: 'https://spoonacular.com/recipeImages/284420-312x231.jpg',  
+    url: 'https://spoonacular.com/recipeImages/284420-312x231.jpg',
     id: 284420,
     calories: 226,
     carbs: 33,
