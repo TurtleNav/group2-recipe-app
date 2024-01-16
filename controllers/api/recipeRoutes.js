@@ -11,7 +11,8 @@ const queryParams = new Map([
   ['protein', ['minProtein', 'maxProtein']],
   ['sodium', ['minSodium', 'maxSodium']],
   ['cholesterol', ['minCholesterol', 'maxCholesterol']],
-  ['sugar', ['minSugar', 'maxSugar']]
+  ['sugar', ['minSugar', 'maxSugar']],
+  ['saturated_fat', ['minSaturatedFat', 'maxSaturatedFat']]
 ]);
 
 /*
@@ -26,6 +27,7 @@ const queryParams = new Map([
   minSodium, maxSodium
   minCholesterol, maxCholesterol
   minSugar, maxSugar
+  minSaturatedFat, maxSaturatedFat
 
 */
 router.get('/', async (req, res) => {
