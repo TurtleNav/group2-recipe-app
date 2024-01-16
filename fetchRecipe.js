@@ -30,32 +30,14 @@ fetch(apiUrl)
     }))
 
     console.log(recipeInfo[0].nutrition)
-      // const first9Nutrients = recipe.nutrients; 
-      // const first9Macros = first9Nutrients.map(macro => ({
-      //   name: macro.name,
-      //   amount: macro.amount
-      // }))
-      // // const first9Macros = // Save the first 9 objects in the nutrients property
-      // const ingredients = recipe.ingredients; // Save the entire ingredients property
-    
-      // return {
-      //   first9Macros,
-      //   ingredients,
-      // };
+     
   })
   .catch(error => {
     console.error('Error fetching data:', error);
     
   });
 
-    // Process the fetched data here
-    // fetchedData.forEach(recipe => {
-    //   const recipeInfo = {
-    //     title: recipe.title,
-    //     nutrition: {
-    //       nutrients: []
-    //     }
-    //   };
+
 
     //   // Iterate through nutrients array and log each nutrient
     //   // recipe.nutrition.nutrients.forEach(nutrient => {
