@@ -37,6 +37,10 @@ router.post('/login', async (req, res) => {
     }
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user = {
+        id: dbUserData.id,
+        email: dbUserData.email,
+      };
       res.status(200).json({ user: dbUserData, message: 'Login Successful' });
     });
   } catch (err) {
