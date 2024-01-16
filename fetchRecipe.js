@@ -2,7 +2,7 @@ const apiKey = '8d3a74b58a844dd0880bad6638d783d0'; // Replace with your actual A
 
 const userSearch = 'pasta';
 const maxCalories = 700;
-const numberOfResults = 2;
+const numberOfResults = 1;
 
 const fillingIngredients = true;
 const addRecipeNutrition = true;
@@ -27,7 +27,7 @@ fetch(apiUrl)
      
     }))
 
-    console.log(recipeInfo)
+    console.log(recipeInfo[0].nutrition)
       // const first9Nutrients = recipe.nutrients; 
       // const first9Macros = first9Nutrients.map(macro => ({
       //   name: macro.name,

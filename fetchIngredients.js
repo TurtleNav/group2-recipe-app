@@ -9,7 +9,7 @@ const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredient
 fetch(apiUrl)
   .then(response => response.json())
   .then(data => {
-    console.log(data);
+    
     return data; // Returning data for further use
   })
   .then(data => {
@@ -29,8 +29,26 @@ fetch(apiUrl)
       return fetch(nutritionUrl)
         .then(response => response.json())
         .then(nutritionData => {
-          // Attach the nutrition data to the corresponding recipe
-          recipe.nutritionData = nutritionData;
+            // console.log(nutritionData)
+
+            for (const nutrient of nutritionData.nutrients) {
+                if (nutrient.name === "Sodium") {
+                  recipe.sodium = nutrient.amount;
+                } else if (nutrient.name === "Cholesterol") {
+                  recipe.cholesterol = nutrient.amount;
+                } else if (nutrient.name === "Sugar") {
+                  recipe.sugar = nutrient.amount;
+                } else if (nutrient.name === "Calories") {
+                  recipe.calories = nutrient.amount; 
+                }
+                
+            }
+            console.log(RecipeInfo)
+        //   // Attach the nutrition data to the corresponding recipe
+        //   recipe.calories = nutritionData.calories,
+        //   recipe.carbs = nutritionData.carbs,
+        //   recipe.fat = nutritionData.fat,
+        //   recipe.protein = nutritionData.protein
         })
         .catch(error => {
           console.error('Error fetching nutrition data:', error);
@@ -42,9 +60,10 @@ fetch(apiUrl)
   })
   .then(() => {
     // Now RecipeInfo contains nutritionData for each recipe
-    console.log(RecipeInfo);
+    // console.log(RecipeInfo);
   })
   .catch(error => {
     console.error('Error fetching data:', error);
   });
 
+  
