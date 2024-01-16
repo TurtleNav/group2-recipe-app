@@ -3,6 +3,7 @@ const {Recipe} = require('../models');
 const recipeData = [
   {
     title: 'Baked Apples in White Wine',
+    url: 'https://spoonacular.com/recipeImages/90629-312x231.jpg',
     id: 90629,
     calories: 210,
     carbs: 43,
@@ -15,6 +16,7 @@ const recipeData = [
   },
   {
     title: 'Chocolate Silk Pie with Marshmallow Meringue',
+    url: 'https://spoonacular.com/recipeImages/284420-312x231.jpg',  
     id: 284420,
     calories: 226,
     carbs: 33,
