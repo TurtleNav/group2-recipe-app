@@ -78,7 +78,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// /api/recipes
+// /api/recipes/byuser
 router.get('/byuser', async (req, res) => {
   try {
     const recipeData = await Recipe.findAll({
