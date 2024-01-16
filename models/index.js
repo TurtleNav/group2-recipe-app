@@ -1,34 +1,16 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+// const Ingredient = require('./Ingredient');
+const User = require('./User');
+const Recipe = require('./Recipe');
 
-class Recipe extends Model {}
+User.hasMany(Recipe, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
+});
 
-Recipe.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    recipe_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    ingredients: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-    },
-    has_nuts: {
-      type: DataTypes.BOOLEAN,
-    },
-  },
-  {
-    sequelize,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'Recipe',
-  }
-);
+Recipe.belongsTo(User, {
+  foreignKey: 'user_id',
+});
 
-module.exports = Recipe;
+// module.exports = { Ingredient, User, Recipe };
+module.exports = { User, Recipe };
+
