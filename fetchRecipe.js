@@ -4,13 +4,14 @@ const apiKey = process.env.API_KEY;
 
 const userSearch = 'pasta';
 const maxCalories = 700;
+const minProtein = 20;
 const numberOfResults = 1;
 
 const fillingIngredients = true;
 const addRecipeNutrition = true;
 
 
-const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${userSearch}&maxCalories=${maxCalories}&number=${numberOfResults}&fillingredents=${fillingIngredients}&addRecipeNutrition=${addRecipeNutrition}&apiKey=${apiKey}`;
+const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${userSearch}&maxCalories=${maxCalories}&${minProtein}&number=${numberOfResults}&fillingredents=${fillingIngredients}&addRecipeNutrition=${addRecipeNutrition}&apiKey=${apiKey}`;
 
 let fetchedData = [];
 let recipeInfo = [];
