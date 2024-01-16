@@ -1,4 +1,4 @@
-const apiKey = '8d3a74b58a844dd0880bad6638d783d0'; // Replace with your actual API key
+let apiKey;
 
 const ingredientsList = 'apples,flour,sugar';
 const numberOfRecipes = 1;
