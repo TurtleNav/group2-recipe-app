@@ -40,6 +40,14 @@ fetch(apiUrl)
                   recipe.sugar = nutrient.amount;
                 } else if (nutrient.name === "Calories") {
                   recipe.calories = nutrient.amount; 
+                } else if (nutrient.name === "Fat") {
+                  recipe.fat = nutrient.amount; 
+                } else if (nutrient.name === "Saturated Fat") {
+                  recipe.saturatedFat = nutrient.amount; 
+                } else if (nutrient.name === "Carbohydrates") {
+                  recipe.carbohydrates = nutrient.amount; 
+                } else if (nutrient.name === "Protein") {
+                  recipe.protein = nutrient.amount; 
                 }
                 
             }
