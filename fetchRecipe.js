@@ -1,4 +1,5 @@
-let apiKey;
+const apiKey = require("./config/connection")
+
 
 const userSearch = 'pasta';
 const maxCalories = 700;
