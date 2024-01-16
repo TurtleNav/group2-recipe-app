@@ -53,11 +53,7 @@ fetch(apiUrl)
                 
             }
             console.log(RecipeInfo)
-        //   // Attach the nutrition data to the corresponding recipe
-        //   recipe.calories = nutritionData.calories,
-        //   recipe.carbs = nutritionData.carbs,
-        //   recipe.fat = nutritionData.fat,
-        //   recipe.protein = nutritionData.protein
+      
         })
         .catch(error => {
           console.error('Error fetching nutrition data:', error);
@@ -68,8 +64,7 @@ fetch(apiUrl)
     return Promise.all(nutritionRequests);
   })
   .then(() => {
-    // Now RecipeInfo contains nutritionData for each recipe
-    // console.log(RecipeInfo);
+
   })
   .catch(error => {
     console.error('Error fetching data:', error);
