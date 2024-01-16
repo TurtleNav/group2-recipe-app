@@ -23,7 +23,7 @@ body {
 header {
     top: 0;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     padding: 10px;
     background-color: var(--darkblue);
 }
@@ -47,15 +47,8 @@ footer {
     text-align: center;
 }
 
-/* footer h1 {
-    font-size: 20px;
-}
-
-footer a {
-    font-size: 16px;
-} */
-
 
 #logo {
     max-width: 320px;
 }
+
