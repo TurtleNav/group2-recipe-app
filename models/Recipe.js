@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class Recipe extends Model {}
 
+// store image link, sodium, and cholesterol
 Recipe.init(
   {
     id: {
@@ -12,32 +13,33 @@ Recipe.init(
     },
     title: {
       type: DataTypes.STRING, // Up to 255 characters *SHOULD* be long enough for a recipe name
+      allowNull: false
+    },
+    image: {
+      type: DataTypes.STRING,
+      // Make sure image link is a valid hyper link such as 'https://abcdefgh.com'
+      validate: {
+        isUrl: true
+      }
     },
     calories: {
-      type: DataTypes.INTEGER
+      type: DataTypes.DECIMAL
     },
     carbs: {
-      // type: DataTypes.CHAR(4) // Can never exceed the string of length 4: '100g'
-      type: DataTypes.INTEGER
+      type: DataTypes.DECIMAL
     },
     fat: {
-      // type: DataTypes.CHAR(4) // Can never exceed the string of length 4: '100g'
-      type: DataTypes.INTEGER
+      type: DataTypes.DECIMAL
     },
     protein: {
-      // type: DataTypes.CHAR(4) // Can never exceed the string of length 4: '100g'
-      type: DataTypes.INTEGER
+      type: DataTypes.DECIMAL
     },
-    calories: {
+    sodium: {
       type: DataTypes.DECIMAL,
     },
-    protein: {
+    cholesterol: {
       type: DataTypes.DECIMAL,
     },
-    carbs: {
-      type: DataTypes.DECIMAL,
-    },
-
   },
   {
     sequelize,
