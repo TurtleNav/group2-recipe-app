@@ -34,17 +34,26 @@ nav {
 
 main {
     text-shadow: 0px 0px 2px black;
+    min-height: 70vh;
 }
 
 footer {
     bottom: 0;
-    height: 90px;
+    height: 15%;
     width: 100%;
     margin-top: 10px;
     padding: 10px;
     background-color: var(--darkblue);
     text-align: center;
 }
+
+/* footer h1 {
+    font-size: 20px;
+}
+
+footer a {
+    font-size: 16px;
+} */
 
 
 #logo {
