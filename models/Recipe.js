@@ -11,6 +11,9 @@ Recipe.init(
       allowNull: false,
       primaryKey: true,
     },
+    spoonacular_id: {
+      type: DataTypes.INTEGER,
+    },
     title: {
       type: DataTypes.STRING, // Up to 255 characters *SHOULD* be long enough for a recipe name
       allowNull: false,
