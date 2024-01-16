@@ -13,13 +13,35 @@ fetch(apiUrl)
     return data; // Returning data for further use
   })
   .then(data => {
-    const RecipeInfo = data.map(recipe => ({
+    RecipeInfo = data.map(recipe => ({
       id: recipe.id,
       title: recipe.title,
       image: recipe.image,
       missedIngredients: recipe.missedIngredients,
       usedIngredients: recipe.usedIngredients
     }));
+    // console.log(RecipeInfo);
+
+    // Perform another fetch for each recipe's ID
+    const nutritionRequests = RecipeInfo.map(recipe => {
+      const nutritionUrl = `https://api.spoonacular.com/recipes/${recipe.id}/nutritionWidget.json?apiKey=${apiKey}`;
+      
+      return fetch(nutritionUrl)
+        .then(response => response.json())
+        .then(nutritionData => {
+          // Attach the nutrition data to the corresponding recipe
+          recipe.nutritionData = nutritionData;
+        })
+        .catch(error => {
+          console.error('Error fetching nutrition data:', error);
+        });
+    });
+
+    // Wait for all nutrition requests to complete before moving forward
+    return Promise.all(nutritionRequests);
+  })
+  .then(() => {
+    // Now RecipeInfo contains nutritionData for each recipe
     console.log(RecipeInfo);
   })
   .catch(error => {
