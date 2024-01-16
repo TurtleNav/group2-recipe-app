@@ -10,7 +10,8 @@ const recipeData = [
     protein: 1,
     sodium: 154.2,
     cholesterol: 27.8,
-    sugar: 34
+    sugar: 34,
+    saturatedFat: 1.1
   },
   {
     title: 'Chocolate Silk Pie with Marshmallow Meringue',
@@ -21,7 +22,8 @@ const recipeData = [
     protein: 2,
     sodium: 389.9,
     cholesterol: 90.4,
-    sugar: 27.2
+    sugar: 27.2,
+    saturatedFat: 6.5
   }
 ];
 
