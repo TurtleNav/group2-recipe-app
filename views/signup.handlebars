@@ -1,20 +1,30 @@
-<div>
-  <h2>Signup</h2>
-  <form>
-    <div>
-      <label>Username:</label>
-      <input />
+<div class="container text-center">
+    <div class="row align-items-center">
+      <h2>Sign-Up</h2>
+      <form id="signup">
+        <div class="row mb-3 justify-content-center">
+          <label for="inputUsername" class="col-sm-2 col-form-label">Username:</label>
+          <div class="col-sm-3">
+            <input type="username" class="form-control" id="inputUsername">
+          </div>
+        </div>
+        <div class="row mb-3 justify-content-center">
+          <label for="inputEmail" class="col-sm-2 col-form-label">Email:</label>
+          <div class="col-sm-3">
+            <input type="email" class="form-control" id="inputEmail">
+          </div>
+        </div>
+        <div class="row mb-3 justify-content-center">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Password:</label>
+          <div class="col-sm-3">
+            <input type="password" class="form-control" id="inputPassword3">
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">Sign-Up</button>
+        </div>
+        </div>
+      </form>
     </div>
-    <div>
-      <label>Email:</label>
-      <input />
-    </div>
-    <div>
-      <label>Password:</label>
-      <input />
-    </div>
-    <div>
-      <button>signup</button>
-    </div>
-  </form>
 </div>
+<script src="/js/signup.js"></script>

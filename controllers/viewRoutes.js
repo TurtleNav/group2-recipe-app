@@ -2,7 +2,7 @@ const viewRouter = require('express').Router();
 
 viewRouter.get('/', async (req, res) => {
   try {
-    res.render('all');
+    res.render('all', { loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }
