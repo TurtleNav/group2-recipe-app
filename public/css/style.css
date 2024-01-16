@@ -7,7 +7,7 @@
 
 * {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     color: var(--orange);
 }
 
@@ -26,11 +26,24 @@ header {
     margin-bottom: 30px;
     padding: 10px;
     background-color: var(--darkblue);
+    font-size: 20px;
 }
 
 main {
-    text-shadow: 0px 0px 3px black;
+    /* text-shadow: 0px 0px 3px black; */
     min-height: 70vh;
+}
+
+.container {
+    padding-bottom: 25px;
+}
+
+.card {
+    background-color: var(--darkblue);
+}
+
+.card-title {
+    color: var(--lightblue);
 }
 
 footer {
