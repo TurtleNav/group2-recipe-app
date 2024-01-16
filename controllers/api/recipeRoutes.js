@@ -8,7 +8,9 @@ const queryParams = new Map([
   ['calories', ['minCalories', 'maxCalories']],
   ['carbs', ['minCarbs', 'maxCarbs']],
   ['fat', ['minFat', 'maxFat']],
-  ['protein', ['minProtein', 'maxProtein']]
+  ['protein', ['minProtein', 'maxProtein']],
+  ['sodium', ['minSodium', 'maxSodium']],
+  ['cholesterol', ['minCholesterol', 'maxCholesterol']]
 ]);
 
 /*
@@ -16,17 +18,13 @@ const queryParams = new Map([
 
   query parameters:
 
-  minCalories
-  maxCalories
+  minCalories, maxCalories
+  minCarbs, maxCarbs
+  minFat, maxFat
+  minProtein, maxProtein
+  minSodium, maxSodium
+  minCholesterol, maxCholesterol
 
-  minCarbs
-  maxCarbs
-
-  minFat
-  maxFat
-
-  minProtein
-  maxProtein
 */
 router.get('/', async (req, res) => {
   try {
