@@ -29,6 +29,14 @@ header {
     font-size: 20px;
 }
 
+.nav-link {
+    font-size: 24px;
+}
+
+.myProfileBtn {
+    font-size: 24px;
+}
+
 main {
     /* text-shadow: 0px 0px 3px black; */
     min-height: 70vh;
