@@ -1,4 +1,5 @@
-let apiKey;
+require('dotenv').config();
+const apiKey = process.env.API_KEY;
 
 const ingredientsList = 'apples,flour,sugar';
 const numberOfRecipes = 1;
