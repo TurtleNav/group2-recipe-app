@@ -23,7 +23,7 @@ body {
 header {
     top: 0;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     padding: 10px;
     background-color: var(--darkblue);
 }
@@ -34,11 +34,12 @@ nav {
 
 main {
     text-shadow: 0px 0px 2px black;
+    min-height: 70vh;
 }
 
 footer {
     bottom: 0;
-    height: 90px;
+    height: 15%;
     width: 100%;
     margin-top: 10px;
     padding: 10px;
@@ -50,3 +51,4 @@ footer {
 #logo {
     max-width: 320px;
 }
+
