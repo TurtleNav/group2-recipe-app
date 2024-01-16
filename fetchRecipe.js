@@ -1,5 +1,4 @@
-require('dotenv').config();
-const apiKey = process.env.API_KEY;
+const { apiKey } = require('./config/connection')
 
 
 const userSearch = 'pasta';

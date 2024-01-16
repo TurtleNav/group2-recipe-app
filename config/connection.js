@@ -10,7 +10,6 @@ if (process.env.JAWSDB_URL) {
     process.env.DB_NAME,
     process.env.DB_USER,
     process.env.DB_PASSWORD,
-    process.env.API_KEY,
     {
       host: 'localhost',
       dialect: 'mysql',
@@ -19,4 +18,6 @@ if (process.env.JAWSDB_URL) {
   );
 }
 
-module.exports = sequelize;
+const apiKey = process.env.API_KEY;
+
+module.exports = {sequelize, apiKey};
