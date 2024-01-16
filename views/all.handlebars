@@ -1,17 +1,23 @@
-        <div class="container text-center">
-            <div class="row align-items-center">
-                <div class="col">
-                    <h2>About Us</h2>
-                </div>
-                <div class="col">
-                    <img id="logo" src="/images/logo.png" alt="logo">
-                </div>
-                <div class="col">
-                    <h2>More Words</h2>
-                </div> 
-            </div>
-        </div>
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <a class="btn btn-primary" href="/login" role="button">Login</a>
-            <a class="btn btn-primary" href="/signup" role="button">Sign-Up</a>
-        </div>
+<div class='container text-center'>
+  <div class='row align-items-center'>
+    <div class='col'>
+      <h2>About Us</h2>
+    </div>
+    <div class='col'>
+      <img id='logo' src='/images/logo.png' alt='logo' />
+    </div>
+    <div class='col'>
+      <h2>More Words</h2>
+    </div>
+  </div>
+</div>
+
+<div class='d-grid gap-2 col-6 mx-auto'>
+  {{#if loggedIn}}
+    <a class='btn btn-primary' href='/' role='button' id='logoutBTN'>Logout</a>
+  {{else}}
+    <a class='btn btn-primary' href='/login' role='button'>Login</a>
+    <a class='btn btn-primary' href='/signup' role='button'>Sign-Up</a>
+  {{/if}}
+</div>
+<script src='/js/logout.js'></script>
