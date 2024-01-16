@@ -5,17 +5,17 @@ const recipeData = [
     'title': 'Baked Apples in White Wine',
     'id': 90629,
     'calories': 210,
-    'carbs': '43g',
-    'fat': '3g',
-    'protein': '1g'
+    'carbs': 43,
+    'fat': 3,
+    'protein': 1
   },
   {
     'title': 'Chocolate Silk Pie with Marshmallow Meringue',
     'id': 284420,
     'calories': 226,
-    'carbs': '33g',
-    'fat': '10g',
-    'protein': '2g'
+    'carbs': 33,
+    'fat': 10,
+    'protein': 2
   }
 ];
 

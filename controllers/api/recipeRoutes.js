@@ -8,8 +8,19 @@ const {Op} = require('sequelize');
   Get route for all cached Recipes
 
   query parameters:
+
   minCalories
   maxCalories
+
+  minCarbs
+  maxCarbs
+
+  minFat
+  maxFat
+
+  minProtein
+  maxProtein
+
 
 */
 router.get('/', async (req, res) => {
@@ -33,6 +44,8 @@ router.get('/', async (req, res) => {
       }
       options.where.calories = calories;
     }
+
+    //if (req.query.minProtein)
 
     const recipeData = await Recipe.findAll(options);
     res.status(200).json(recipeData);

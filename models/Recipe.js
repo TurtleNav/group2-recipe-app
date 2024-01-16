@@ -17,13 +17,16 @@ Recipe.init(
       type: DataTypes.INTEGER
     },
     carbs: {
-      type: DataTypes.CHAR(4) // Can never exceed the string of length 4: '100g'
+      // type: DataTypes.CHAR(4) // Can never exceed the string of length 4: '100g'
+      type: DataTypes.INTEGER
     },
     fat: {
-      type: DataTypes.CHAR(4) // Can never exceed the string of length 4: '100g'
+      // type: DataTypes.CHAR(4) // Can never exceed the string of length 4: '100g'
+      type: DataTypes.INTEGER
     },
     protein: {
-      type: DataTypes.CHAR(4) // Can never exceed the string of length 4: '100g'
+      // type: DataTypes.CHAR(4) // Can never exceed the string of length 4: '100g'
+      type: DataTypes.INTEGER
     },
   },
   {
