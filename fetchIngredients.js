@@ -15,9 +15,14 @@ fetch(apiUrl)
   .then(data => {
     const RecipeInfo = data.map(recipe => ({
       id: recipe.id,
+      title: recipe.title,
+      image: recipe.image,
+      missedIngredients: recipe.missedIngredients,
+      usedIngredients: recipe.usedIngredients
     }));
     console.log(RecipeInfo);
   })
   .catch(error => {
     console.error('Error fetching data:', error);
   });
+
