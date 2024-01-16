@@ -33,17 +33,19 @@ nav {
 }
 
 main {
-
+    text-shadow: 0px 0px 2px black;
 }
 
 footer {
     bottom: 0;
+    height: 90px;
     width: 100%;
     margin-top: 10px;
     padding: 10px;
     background-color: var(--darkblue);
     text-align: center;
 }
+
 
 #logo {
     max-width: 320px;

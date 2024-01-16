@@ -28,6 +28,16 @@ Recipe.init(
       // type: DataTypes.CHAR(4) // Can never exceed the string of length 4: '100g'
       type: DataTypes.INTEGER
     },
+    calories: {
+      type: DataTypes.DECIMAL,
+    },
+    protein: {
+      type: DataTypes.DECIMAL,
+    },
+    carbs: {
+      type: DataTypes.DECIMAL,
+    },
+
   },
   {
     sequelize,

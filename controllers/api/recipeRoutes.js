@@ -11,7 +11,6 @@ const queryParams = new Map([
   ['protein', ['minProtein', 'maxProtein']]
 ]);
 
-
 /*
   Get route for all cached Recipes
 
@@ -84,4 +83,5 @@ router.post('/', async (req, res) => {
 
   res.json(newRecipeData);
 });
+
 module.exports = router;
