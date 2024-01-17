@@ -7,16 +7,14 @@ async function fetchRecipesbyIngredients(ingredientsList='flour,eggs,apples', nu
   const apiKey = process.env.API_KEY;
   const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsList}&number=${numberOfRecipes}&ranking=${ranking}&apiKey=${apiKey}`;
 
-  return await fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-      const recipeInfo = data.map(recipe => ({
-        id: recipe.id,
-        title: recipe.title,
-        image: recipe.image,
-        missedIngredients: recipe.missedIngredients,
-        usedIngredients: recipe.usedIngredients
-      }));
+  const recipeData = await fetch(apiUrl).then(response => response.json())
+  const recipeInfo = recipeData.map(recipe => ({
+    id: recipe.id,
+    title: recipe.title,
+    image: recipe.image,
+    missedIngredients: recipe.missedIngredients,
+    usedIngredients: recipe.usedIngredients
+  }));
 
       const nutritionRequests = recipeInfo.map(recipe => {
         const nutritionUrl = `https://api.spoonacular.com/recipes/${recipe.id}/nutritionWidget.json?apiKey=${apiKey}`;
@@ -49,7 +47,7 @@ async function fetchRecipesbyIngredients(ingredientsList='flour,eggs,apples', nu
           });
       });
      
-      return nutritionRequests
+      return Promise.all(nutritionRequests).then(() => recipeInfo);
     })
     .catch(error => {
       console.error('Error fetching data:', error);
@@ -57,4 +55,4 @@ async function fetchRecipesbyIngredients(ingredientsList='flour,eggs,apples', nu
     });
 }
   
-console.log(fetchRecipesbyIngredients())
+fetchRecipesbyIngredients()
