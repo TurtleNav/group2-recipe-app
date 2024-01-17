@@ -6,6 +6,12 @@
       rule to decrease font size with decreasing window size
 
 */
+// TODO: rename import whenever fetchIngredientsv2 is renamed
+/* eslint-disable */
+const {fetchRecipesbyIngredients: init} = require('./fetchIngredientsv2');
+/* eslint-enable */
+
+
 const searchSelect = document.getElementById('search-method');
 const searchForm = document.getElementById('search-form');
 
