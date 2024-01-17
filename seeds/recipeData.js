@@ -40,6 +40,22 @@ const recipeData = [
     sugar: 118.73,
     saturatedFat: 22.19,
   },
+  {
+    id: 674272,
+    title: 'Grand Apple and Cinnamon Biscuits',
+    image: 'https://spoonacular.com/recipeImages/674272-312x231.jpg',
+    calories: 538.31,
+    carbohydrates: 88.41,
+    fat: 18.09,
+    protein: 9.35,
+    sodium: 1061.34,
+    cholesterol: 47.99,
+    sugar: 34.06,
+    saturatedFat: 10.98,
+  }
+
+
+  
 ];
 
 const seedRecipes = () => Recipe.bulkCreate(recipeData);
