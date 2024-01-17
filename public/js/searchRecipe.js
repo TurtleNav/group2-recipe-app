@@ -3,7 +3,7 @@ const { combineTableNames } = require("sequelize/types/utils");
 const searchRecipeFormHandler = async (event) => {
   event.preventDefault();
 
-  const searchTerm = document.querySelector('').value.trime;
+  const searchTerm = document.querySelector('').value.trim;
 
   if (searchTerm) {
     const response = await fetch('', {
