@@ -13,8 +13,6 @@ const searchForm = document.getElementById('search-form');
 // 1: searchByIngredient | 2: searchByNutrient
 let searchMethod;
 
-console.log(searchForm);
-
 // search method when 'Search By Ingredient' is selected
 function searchByIngredient() {
   console.log('searching by ingredients...');
@@ -25,18 +23,36 @@ function searchByNutrient() {
   console.log('searching by nutrients...');
 }
 
+// Render additional input forms for the nutrients the user wishes
+// to filter recipes by
+function toggleOnNutrientParams() {
+  console.log('toggling on nutrient input forms');
+}
+
+// Hide the rendered nutrient input form
+function toggleOffNutrientParams() {
+  console.log('toggling off nutrient input forms');
+}
+
 // Whenever an option is selected, reassign the global searchMethod variable
 searchSelect.addEventListener('change', () => {
-  searchMethod = searchSelect.selectedIndex;
+  switch (searchSelect.selectedIndex) {
+  case 1:
+    searchMethod = searchByIngredient;
+    break;
+  case 2:
+    searchMethod = searchByNutrient;
+    toggleOnNutrientParams();
+    return;
+  default:
+    console.log('A search method needs to be selected before you can search');
+  }
+  toggleOffNutrientParams();
 });
 
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  if (searchMethod === 1) {
-    searchByIngredient();
-  } else if (searchMethod === 2) {
-    searchByNutrient();
-  } else {
-    console.log('A search method needs to be selected before you can search');
+  if (searchMethod) {
+    searchMethod(); // Run whatever search method currently selected
   }
 });
