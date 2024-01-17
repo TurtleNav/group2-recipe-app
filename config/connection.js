@@ -18,6 +18,6 @@ if (process.env.JAWSDB_URL) {
   );
 }
 
-const apiKey = process.env.API_KEY;
 
-module.exports = {sequelize, apiKey};
+
+module.exports = sequelize;

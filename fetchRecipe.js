@@ -1,9 +1,9 @@
-const { apiKey } = require('./config/connection')
+require('dotenv').config();
+const apiKey  = process.env.API_KEY;
 
 
 const userSearch = 'pasta';
 const maxCalories = 700;
-const minProtein = 20;
 const numberOfResults = 1;
 
 const fillingIngredients = true;
