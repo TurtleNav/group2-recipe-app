@@ -118,6 +118,20 @@ const recipeData = [
     sodium: 587.83,
     protein: 15.33
   },
+  {
+    id: 632660,
+    title: 'Apricot Glazed Apple Tart',
+    image: 'https://spoonacular.com/recipeImages/632660-312x231.jpg',
+    calories: 657.51,
+    fat: 35.27,
+    saturatedFat: 21.91,
+    carbohydrates: 84.27,
+    sugar: 38.18,
+    cholesterol: 91.11,
+    sodium: 24.68,
+    protein: 5.89
+  },
+  
 
 
   
