@@ -10,7 +10,7 @@ Recipe.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     spoonacular_id: {
       type: DataTypes.INTEGER,
@@ -48,7 +48,7 @@ Recipe.init(
       type: DataTypes.DECIMAL,
     },
     saturatedFat: {
-      type: DataTypes.DECIMAL
+      type: DataTypes.DECIMAL,
     },
     user_id: {
       type: DataTypes.INTEGER,
