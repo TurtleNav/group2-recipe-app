@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 
 const ranking = 1;
 
-function fetchRecipes(ingredientsList, numberOfRecipes) {
+function fetchRecipesbyIngredients(ingredientsList, numberOfRecipes) {
   const apiKey = process.env.API_KEY;
   const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsList}&number=${numberOfRecipes}&ranking=${ranking}&apiKey=${apiKey}`;
 
