@@ -1,7 +1,7 @@
 require('dotenv').config();
 const fetch = require('node-fetch');
 
-function fetchRecipesWithParameters(userSearch, maxCalories, numberOfResults) {
+function fetchRecipes(userSearch="pasta", maxCalories=400, numberOfResults=4) {
   const apiKey = process.env.API_KEY;
   const fillingIngredients = true;
   const addRecipeNutrition = true;
@@ -10,7 +10,7 @@ function fetchRecipesWithParameters(userSearch, maxCalories, numberOfResults) {
 
   let fetchedData = [];
   let recipeInfo = [];
-  let nutritionInformationRaw = [];
+ 
 
   return fetch(apiUrl)
     .then(response => response.json())
@@ -33,6 +33,6 @@ function fetchRecipesWithParameters(userSearch, maxCalories, numberOfResults) {
     });
 }
 
-
+console.log(fetchRecipes())
 
 
