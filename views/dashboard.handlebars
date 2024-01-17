@@ -4,13 +4,11 @@
       <div class='card'>
         <div class='card-body'>
           <h2 class='card-title'>Recipe List</h2>
-          {{#each recipes as |recipe|}}
+          <div class="card">
+            {{#each recipes as |recipe|}}
             {{recipe.title}}
-          {{/each}}
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
-            incidunt vitae accusantium, suscipit ab illo. Quidem beatae, ratione
-            ut temporibus nam at quibusdam velit laborum, libero soluta eum,
-            perspiciatis hic?</p>
+            {{/each}}
+          </div>
         </div>
       </div>
     </div>
