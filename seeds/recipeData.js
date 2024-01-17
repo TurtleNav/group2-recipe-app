@@ -79,6 +79,19 @@ const recipeData = [
     sodium: 71.95,
     protein: 1
   },
+  {
+    id: 775666,
+    title: 'Easy Homemade Apple Fritters',
+    image: 'https://spoonacular.com/recipeImages/775666-312x231.jpg',
+    calories: 148.29,
+    fat: 0.76,
+    saturatedFat: 0.3,
+    carbohydrates: 34.2,
+    sugar: 25.26,
+    cholesterol: 14.68,
+    sodium: 207.61,
+    protein: 1.86
+  },
 
 
   
