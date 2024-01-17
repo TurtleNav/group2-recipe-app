@@ -16,7 +16,7 @@ const recipeData = [
   },
   {
     title: 'Chocolate Silk Pie with Marshmallow Meringue',
-    image: 'https://spoonacular.com/recipeImages/284420-312x231.jpg',  
+    image: 'https://spoonacular.com/recipeImages/284420-312x231.jpg',
     id: 284420,
     calories: 226,
     carbohydrates: 33,
@@ -135,4 +135,28 @@ const recipeData = [
 
 const seedRecipes = () => Recipe.bulkCreate(recipeData);
 
-module.exports = seedRecipes;
+// Very common implementation of grabbing a random value in an array by
+// generating a random index between 0 and the length of the array - 1
+const getRandomRecipe = () => recipeData[Math.floor(Math.random()*recipeData.length)];
+
+// Get a random number of random recipes. An optional exclude array can be used to
+// exclude particular recipes by recipe id and/or recipe title
+function getRandomRecipes(exclude=[]) {
+  if (exclude.length > recipeData.length) {
+    throw new Error('You can\'t exclude more than the total number of recipes');
+  }
+
+  // Number between 1 and recipeData.length - exclude.length
+  const count = Math.floor(Math.random()*recipeData.length) - exclude.length + 1;
+
+  let results = [];
+  do {
+    const randRecipe = getRandomRecipe();
+    if (!exclude.includes(randRecipe.id) || !exclude.includes(randRecipe.title)) {
+      results.push(randRecipe);
+    }
+  } while (results.length < count);
+  return results;
+}
+
+module.exports = {getRandomRecipes, seedRecipes};
