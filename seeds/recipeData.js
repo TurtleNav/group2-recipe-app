@@ -66,6 +66,19 @@ const recipeData = [
     sodium: 7.07,
     protein: 2.59
   },
+  {
+    id: 157103,
+    title: 'Apple Cinnamon Blondies',
+    image: 'https://spoonacular.com/recipeImages/157103-312x231.jpg',
+    calories: 110.94,
+    fat: 4.88,
+    saturatedFat: 3,
+    carbohydrates: 16.14,
+    sugar: 11.05,
+    cholesterol: 20.39,
+    sodium: 71.95,
+    protein: 1
+  },
 
 
   
