@@ -9,10 +9,10 @@ async function fetchRecipesbyIngredients(ingredientsList = 'flour,eggs,apples', 
     const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsList}&number=${numberOfRecipes}&ranking=${ranking}&apiKey=${apiKey}`;
 
     const recipeData = await fetch(apiUrl).then(response => response.json());
+    
     const recipeInfo = await Promise.all(
       recipeData.map(async recipe => {
         const nutritionUrl = `https://api.spoonacular.com/recipes/${recipe.id}/nutritionWidget.json?apiKey=${apiKey}`;
-
         const nutritionData = await fetch(nutritionUrl).then(response => response.json());
 
         for (const nutrient of nutritionData.nutrients) {
@@ -29,7 +29,7 @@ async function fetchRecipesbyIngredients(ingredientsList = 'flour,eggs,apples', 
           } else if (nutrient.name === 'Saturated Fat') {
             recipe.saturatedFat = nutrient.amount;
           } else if (nutrient.name === 'Carbohydrates') {
-            recipe.carbohydrates = nutrient.amount;3
+            recipe.carbohydrates = nutrient.amount;
           } else if (nutrient.name === 'Protein') {
             recipe.protein = nutrient.amount;
           }
@@ -39,26 +39,13 @@ async function fetchRecipesbyIngredients(ingredientsList = 'flour,eggs,apples', 
       })
     );
 
-    return recipeInfo;
+    console.log(recipeInfo);
+    return await recipeInfo;
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error('Error fetching recipes:', error);
     throw error;
   }
 }
 
-//User 
-async function startIngredientsearch(ingredientsList, numberOfRecipes) {
-    try {
-      const recipeInfo = await fetchRecipesbyIngredients(ingredientsList, numberOfRecipes);
-      console.log(recipeInfo)
-      return recipeInfo;
-   
-    } catch (error) {
-      // Handle errors
-      console.error('Error fetching recipes:', error);
-    }
-}
-
-startIngredientsearch();
-
-module.exports = startIngredientsearch;
+console.log(fetchRecipesbyIngredients())
+module.exports = fetchRecipesbyIngredients;

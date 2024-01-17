@@ -6,7 +6,8 @@ function fetchRecipes(userSearch="pasta", maxCalories=400, numberOfResults=4) {
   const fillingIngredients = true;
   const addRecipeNutrition = true;
 
-  const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${userSearch}&maxCalories=${maxCalories}&number=${numberOfResults}&fillingredents=${fillingIngredients}&addRecipeNutrition=${addRecipeNutrition}&apiKey=${apiKey}`;
+  const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${userSearch}&maxCalories=${maxCalories}&number=${numberOfResults}&fillingredents=${fillingIngredients}
+  &addRecipeNutrition=${addRecipeNutrition}&apiKey=${apiKey}`;
 
   let fetchedData = [];
   let recipeInfo = [];
@@ -29,7 +30,7 @@ function fetchRecipes(userSearch="pasta", maxCalories=400, numberOfResults=4) {
     })
     .catch(error => {
       console.error('Error fetching data:', error);
-      throw error; // Re-throw the error for handling at the higher level if needed
+      throw error; 
     });
 }
 
