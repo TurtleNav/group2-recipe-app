@@ -46,6 +46,15 @@ async function fetchRecipesbyIngredients(ingredientsList = 'flour,eggs,apples', 
   }
 }
 
+async function init() {
+    try {
+      const recipeInfo = await fetchRecipesbyIngredients();
+      console.log(recipeInfo);
+   
+    } catch (error) {
+      // Handle errors
+      console.error('Error fetching recipes:', error);
+    }
+}
 
-
-init();
+init()
