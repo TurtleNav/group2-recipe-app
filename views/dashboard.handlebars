@@ -8,22 +8,28 @@
       </button>
     </h2>
     <div id="collapse{{@index}}" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
-      <div class="accordion-body">
+      <div class="accordion-body" style="background-color: #6a95c2;">
         <!-- Content for each Recipe -->
-        <div class="card">
-          <div class='card-body'>
-            
-            <h3>Nutrition Facts</h3>
-            <img src={{recipe.image}}>
-            <p> Calories: {{recipe.fat}}kcal </p>
-            <p> Carbohydrates: {{recipe.carbohydrates}}g</p>
-            <p> Fat: {{recipe.fat}}g</p>
-            <p> Protein: {{recipe.protein}}g</p>
-            <p> Sodium: {{recipe.sodium}}mg</p>
-            <p> Cholesterol: {{recipe.cholesterol}}mg</p>
-            <p> Sugar: {{recipe.sugar}}g</p>
-            <p> Saturated Fat: {{recipe.saturatedFat}}g</p>
-            
+        <div class="card border-warning mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src={{recipe.image}} class="img-fluid rounded" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{recipe.title}}</h5>
+                <h6 class="card-subtitle mb-2">Nutrition Facts</h6>
+                <hr class="dotted">
+                <p class="card-text">Calories: {{recipe.fat}}k cal</p>
+                <p class="card-text">Carbohydrates: {{recipe.carbohydrates}}g</p>
+                <p class="card-text">Fat: {{recipe.fat}}g</p>
+                <p class="card-text">Protein: {{recipe.protein}}g</p>
+                <p class="card-text">Sodium: {{recipe.sodium}}mg</p>
+                <p class="card-text">Cholesterol: {{recipe.cholesterol}}mg</p>
+                <p class="card-text">Sugar: {{recipe.sugar}}g</p>
+                <p class="card-text">Saturated Fat: {{recipe.saturatedFat}}g</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -31,3 +37,28 @@
   </div>
   {{/each}}
 </div>
+
+{{!-- <div class="card justify-content-center">
+          <div class='card mb-3' style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src={{recipe.image}} alt="Image of recipe dish" class="img-fluid rounded-start">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h2 class="card-title">{{recipe.title}}</h2>
+                  <h3 class="card-text">Nutrition Facts</h3>
+                  <hr class="dotted">
+                  <p class="col-6 col-md-3"> Calories: {{recipe.fat}}k cal </p>
+                  <p class="col-6 col-md-3"> Carbohydrates: {{recipe.carbohydrates}}g</p>
+                  <p class="col-6 col-md-3"> Fat: {{recipe.fat}}g</p>
+                  <p class="col-6 col-md-3"> Protein: {{recipe.protein}}g</p>
+                  <p class="col-6 col-md-3"> Sodium: {{recipe.sodium}}mg</p>
+                  <p class="col-6 col-md-3"> Cholesterol: {{recipe.cholesterol}}mg</p>
+                  <p class="col-6 col-md-3"> Sugar: {{recipe.sugar}}g</p>
+                  <p class="col-6 col-md-3"> Saturated Fat: {{recipe.saturatedFat}}g</p>
+                </div>
+              </div>
+            </div>            
+          </div>
+        </div> --}}
