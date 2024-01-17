@@ -46,6 +46,7 @@ main {
 
 .card {
     background-color: var(--darkblue);
+    color: var(--orange);
 }
 
 .card-title {
