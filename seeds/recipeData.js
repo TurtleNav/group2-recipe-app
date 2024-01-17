@@ -29,6 +29,11 @@ const recipeData = [
   }
   {
     title: 'Cranberry Apple Crisp',
+    image: 'https://spoonacular.com/recipeImages/640352-312x231.jpg',
+    id: 640352,
+    calories: 937.54,
+
+
   }
 ];
 
