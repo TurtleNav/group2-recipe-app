@@ -52,7 +52,20 @@ const recipeData = [
     cholesterol: 47.99,
     sugar: 34.06,
     saturatedFat: 10.98,
-  }
+  },
+  {
+    id: 157111,
+    title: 'Vegan Baked Apples with Oat Crumble',
+    image: 'https://spoonacular.com/recipeImages/157111-312x231.jpg',
+    calories: 287.96,
+    fat: 10.46,
+    saturatedFat: 0.89,
+    carbohydrates: 43.88,
+    sugar: 27.43,
+    cholesterol: 0,
+    sodium: 7.07,
+    protein: 2.59
+  },
 
 
   
