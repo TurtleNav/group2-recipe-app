@@ -16,6 +16,11 @@ a {
     text-decoration: none;
 }
 
+hr.dotted {
+    border-top: 3px dotted #bbb;
+    margin-top: 16px;
+}
+
 body {
     background-color: var(--lightblue);
 }
@@ -50,6 +55,10 @@ main {
 }
 
 .card-title {
+    color: var(--orange);
+}
+
+.card-subtitle {
     color: var(--lightblue);
 }
 
@@ -66,4 +75,12 @@ footer {
 
 #logo {
     max-width: 320px;
+}
+
+.image-card {
+    max-width: 60vw;
+}
+
+hr.dotted {
+    border-top: 3px dotted #bbb;
 }
