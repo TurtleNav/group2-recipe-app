@@ -6,7 +6,7 @@ const { Op } = require('sequelize');
 // Map object that maps a SQL model's name to query parameters
 const queryParams = new Map([
   ['calories', ['minCalories', 'maxCalories']],
-  ['carbs', ['minCarbs', 'maxCarbs']],
+  ['carbohydrates', ['minCarbs', 'maxCarbs']],
   ['fat', ['minFat', 'maxFat']],
   ['protein', ['minProtein', 'maxProtein']],
   ['sodium', ['minSodium', 'maxSodium']],
