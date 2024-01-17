@@ -5,9 +5,8 @@ const {seedRecipes} = require('./recipeData');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
-
-  await seedRecipes();
   await seedUsers();
+  await seedRecipes();
 
   process.exit(0);
 };

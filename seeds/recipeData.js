@@ -136,16 +136,20 @@ const recipeData = [
 //const seedRecipes = () => Recipe.bulkCreate(recipeData);
 const seedRecipes = () => {
   let results = [];
-  const userData = require('./userData');
+  const {userData} = require('./userData');
+  console.log('userData length ----> ', userData.length);
   for (let id=1; id<=userData.length; id++) {
-    for (const recipe of recipeData.slice()) {
+    for (const recipe of recipeData) {
       if (Math.random() < 0.5) {
-        recipe.user_id = id;
-        results.push(recipe);
+        // Source of some errors. We MUST copy the recipe object instead of
+        // working with the original due to JS object's are passed-by-reference
+        const recipeCopy = Object.create(recipe);
+        console.log('recipeCopy ---> ', recipeCopy);
+        recipeCopy.user_id = id;
+        results.push(recipeCopy);
       }
     }
   }
-  console.log('results ----> ', userData);
   return Recipe.bulkCreate(results);
 };
 
