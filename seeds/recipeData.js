@@ -92,6 +92,19 @@ const recipeData = [
     sodium: 207.61,
     protein: 1.86
   },
+  {
+    id: 73420,
+    title: 'Apple Or Peach Strudel',
+    image: 'https://spoonacular.com/recipeImages/73420-312x231.jpg',
+    calories: 249.07,
+    fat: 1.04,
+    saturatedFat: 0.24,
+    carbohydrates: 60.36,
+    sugar: 42.41,
+    cholesterol: 20.46,
+    sodium: 216.37,
+    protein: 2.75
+  },
 
 
   
