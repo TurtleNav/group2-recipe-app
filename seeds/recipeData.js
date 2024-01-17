@@ -19,22 +19,27 @@ const recipeData = [
     image: 'https://spoonacular.com/recipeImages/284420-312x231.jpg',  
     id: 284420,
     calories: 226,
-    ccarbohydrates: 33,
+    carbohydrates: 33,
     fat: 10,
     protein: 2,
     sodium: 389.9,
     cholesterol: 90.4,
     sugar: 27.2,
     saturatedFat: 6.5
-  }
+  },
   {
     title: 'Cranberry Apple Crisp',
     image: 'https://spoonacular.com/recipeImages/640352-312x231.jpg',
     id: 640352,
     calories: 937.54,
-
-
-  }
+    carbohydrates: 153.58,
+    fat: 36.93,
+    protein: 5.8,
+    sodium: 24.8,
+    cholesterol: 91.27,
+    sugar: 118.73,
+    saturatedFat: 22.19,
+  },
 ];
 
 const seedRecipes = () => Recipe.bulkCreate(recipeData);

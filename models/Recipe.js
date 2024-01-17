@@ -28,7 +28,7 @@ Recipe.init(
     calories: {
       type: DataTypes.DECIMAL,
     },
-    carbs: {
+    carbohydrates: {
       type: DataTypes.DECIMAL,
     },
     fat: {
