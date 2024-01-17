@@ -1,4 +1,6 @@
-let apiKey;
+//let apiKey;
+require('dotenv').config();
+const apiKey = process.env.API_KEY;
 
 const userSearch = 'pasta';
 const maxCalories = 700;
