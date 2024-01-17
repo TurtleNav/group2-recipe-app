@@ -105,6 +105,19 @@ const recipeData = [
     sodium: 216.37,
     protein: 2.75
   },
+  {
+    id: 641803,
+    title: 'Easy & Delish! ~ Apple Crumble',
+    image: 'https://spoonacular.com/recipeImages/641803-312x231.jpg',
+    calories: 2155.14,
+    fat: 71.35,
+    saturatedFat: 43.95,
+    carbohydrates: 379.91,
+    sugar: 263.95,
+    cholesterol: 182.21,
+    sodium: 587.83,
+    protein: 15.33
+  },
 
 
   
