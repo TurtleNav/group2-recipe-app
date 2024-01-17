@@ -1,3 +1,5 @@
+const { Recipe } = require('../models');
+
 const viewRouter = require('express').Router();
 
 viewRouter.get('/', async (req, res) => {
@@ -10,7 +12,13 @@ viewRouter.get('/', async (req, res) => {
 
 viewRouter.get('/dashboard', async (req, res) => {
   try {
-    res.render('dashboard', { loggedIn: req.session.loggedIn });
+    const recipeData = await Recipe.findAll({
+      where: {
+        user_id: req.session.user.id,
+      },
+    });
+    const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
+    res.render('dashboard', { loggedIn: req.session.loggedIn, recipes });
   } catch (err) {
     res.status(500).json(err);
   }
