@@ -1,7 +1,6 @@
 require('dotenv').config();
 const apiKey = process.env.API_KEY;
 
-
 const userSearch = 'pasta';
 const maxCalories = 700;
 const minProtein = 20;
@@ -27,17 +26,10 @@ fetch(apiUrl)
       image: recipe.image,
       ingredients: recipe.nutrition.ingredients,
       nutrition: recipe.nutrition.nutrients.slice(0, 9)
-     
-    }))
+    }));
 
-    console.log(recipeInfo[0].nutrition)
-     
+    console.log(recipeInfo[0].nutrition);
   })
   .catch(error => {
     console.error('Error fetching data:', error);
-    
   });
-
-
-
-
