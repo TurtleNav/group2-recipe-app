@@ -3,12 +3,12 @@ const { combineTableNames } = require("sequelize/types/utils");
 const searchRecipeFormHandler = async (event) => {
   event.preventDefault();
 
-  const searchTerm = document.querySelector('').value.trim;
+  const searchRecipeInput = document.querySelector('').value.trim;
 
   if (searchTerm) {
     const response = await fetch('', {
       method: 'GET',
-      body: JSON.stringify({ searchTerm }),
+      body: JSON.stringify({ searchRecipeInput }),
       headers: { 'Accept': 'application/json' },
     });
 
@@ -24,4 +24,4 @@ const searchRecipeFormHandler = async (event) => {
 
 };
 
-document.querySelector('').addEventListener('click', searchRecipeFormHandler )
+document.querySelector('').addEventListener('click', searchRecipeFormHandler);
