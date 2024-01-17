@@ -13,7 +13,7 @@
 
 a {
     color: var(--orange);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 body {
