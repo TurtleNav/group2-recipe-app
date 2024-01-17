@@ -135,28 +135,17 @@ const recipeData = [
 
 const seedRecipes = () => Recipe.bulkCreate(recipeData);
 
-// Very common implementation of grabbing a random value in an array by
-// generating a random index between 0 and the length of the array - 1
-const getRandomRecipe = () => recipeData[Math.floor(Math.random()*recipeData.length)];
-
-// Get a random number of random recipes. An optional exclude array can be used to
-// exclude particular recipes by recipe id and/or recipe title
-function getRandomRecipes(exclude=[]) {
-  if (exclude.length > recipeData.length) {
-    throw new Error('You can\'t exclude more than the total number of recipes');
-  }
-
-  // Number between 1 and recipeData.length - exclude.length
-  const count = Math.floor(Math.random()*recipeData.length) - exclude.length + 1;
-
+// Get a random number of random recipes by iterating through all the recipes
+// stored in recipeData and flipping a coin on if it should be returned
+function getRandomRecipes() {
   let results = [];
-  do {
-    const randRecipe = getRandomRecipe();
-    if (!exclude.includes(randRecipe.id) || !exclude.includes(randRecipe.title)) {
-      results.push(randRecipe);
+  for (const recipe of recipeData) {
+    // Do a coin toss on whether or not a recipe is added
+    if (Math.random() < 0.5) {
+      results.push(recipe);
     }
-  } while (results.length < count);
+  }
   return results;
 }
-
+console.log(getRandomRecipes());
 module.exports = {getRandomRecipes, seedRecipes};
