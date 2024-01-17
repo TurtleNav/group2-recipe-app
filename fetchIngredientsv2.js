@@ -46,9 +46,10 @@ async function fetchRecipesbyIngredients(ingredientsList = 'flour,eggs,apples', 
   }
 }
 
-async function init() {
+//User 
+async function init(ingredientsList, numberOfRecipes) {
     try {
-      const recipeInfo = await fetchRecipesbyIngredients();
+      const recipeInfo = await fetchRecipesbyIngredients(ingredientsList, numberOfRecipes);
       console.log(recipeInfo);
    
     } catch (error) {
@@ -57,4 +58,4 @@ async function init() {
     }
 }
 
-init()
+module.exports = init;
