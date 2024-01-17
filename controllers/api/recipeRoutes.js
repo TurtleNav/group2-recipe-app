@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Recipe = require('../../models/Recipe');
 
-const {Op} = require('sequelize');
+const { Op } = require('sequelize');
 
 // Map object that maps a SQL model's name to query parameters
 const queryParams = new Map([
@@ -32,7 +32,7 @@ const queryParams = new Map([
 */
 router.get('/', async (req, res) => {
   try {
-    const options = { where: {}};
+    const options = { where: {} };
 
     // params is the array of values in the queryParams map
     // family is a key in the queryParams map
@@ -49,9 +49,9 @@ router.get('/', async (req, res) => {
             }
 
             if (param.startsWith('min')) {
-              Object.assign(queryObj, {[Op.gte]: paramValue});
+              Object.assign(queryObj, { [Op.gte]: paramValue });
             } else if (param.startsWith('max')) {
-              Object.assign(queryObj, {[Op.lte]: paramValue});
+              Object.assign(queryObj, { [Op.lte]: paramValue });
             } else {
               throw new Error('Invalid query parameter');
             }
@@ -61,7 +61,7 @@ router.get('/', async (req, res) => {
     });
     const recipeData = await Recipe.findAll(options);
     res.status(200).json(recipeData);
-  } catch(err) {
+  } catch (err) {
     console.error(err);
     res.status(500).json(err);
   }
@@ -74,7 +74,22 @@ router.get('/:id', async (req, res) => {
   try {
     const recipeData = await Recipe.findByPk(req.params.id);
     res.status(200).json(recipeData);
-  } catch(err) {
+  } catch (err) {
+    console.error(err);
+    res.status(404).json(err);
+  }
+});
+
+// /api/recipes/byuser
+router.get('/byuser', async (req, res) => {
+  try {
+    const recipeData = await Recipe.findAll({
+      where: {
+        user_id: req.session.user.id,
+      },
+    });
+    res.status(200).json(recipeData);
+  } catch (err) {
     console.error(err);
     res.status(404).json(err);
   }
