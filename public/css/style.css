@@ -69,3 +69,15 @@ footer {
     max-width: 320px;
 }
 
+@media screen and (max-width: 992px) {
+    .card {
+      width: 50%;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .card {
+      width: 100%;
+    }
+  }
+  
