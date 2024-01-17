@@ -10,6 +10,7 @@ Recipe.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
+      autoIncrement: true
     },
     spoonacular_id: {
       type: DataTypes.INTEGER,

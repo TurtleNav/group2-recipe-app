@@ -4,7 +4,7 @@ const recipeData = [
   {
     title: 'Baked Apples in White Wine',
     image: 'https://spoonacular.com/recipeImages/90629-312x231.jpg',
-    id: 90629,
+    spoonacular_id: 90629,
     calories: 210,
     carbohydrates: 43,
     fat: 3,
@@ -17,7 +17,7 @@ const recipeData = [
   {
     title: 'Chocolate Silk Pie with Marshmallow Meringue',
     image: 'https://spoonacular.com/recipeImages/284420-312x231.jpg',
-    id: 284420,
+    spoonacular_id: 284420,
     calories: 226,
     carbohydrates: 33,
     fat: 10,
@@ -30,7 +30,7 @@ const recipeData = [
   {
     title: 'Cranberry Apple Crisp',
     image: 'https://spoonacular.com/recipeImages/640352-312x231.jpg',
-    id: 640352,
+    spoonacular_id: 640352,
     calories: 937.54,
     carbohydrates: 153.58,
     fat: 36.93,
@@ -41,7 +41,7 @@ const recipeData = [
     saturatedFat: 22.19,
   },
   {
-    id: 674272,
+    spoonacular_id: 674272,
     title: 'Grand Apple and Cinnamon Biscuits',
     image: 'https://spoonacular.com/recipeImages/674272-312x231.jpg',
     calories: 538.31,
@@ -54,7 +54,7 @@ const recipeData = [
     saturatedFat: 10.98,
   },
   {
-    id: 157111,
+    spoonacular_id: 157111,
     title: 'Vegan Baked Apples with Oat Crumble',
     image: 'https://spoonacular.com/recipeImages/157111-312x231.jpg',
     calories: 287.96,
@@ -67,7 +67,7 @@ const recipeData = [
     protein: 2.59
   },
   {
-    id: 157103,
+    spoonacular_id: 157103,
     title: 'Apple Cinnamon Blondies',
     image: 'https://spoonacular.com/recipeImages/157103-312x231.jpg',
     calories: 110.94,
@@ -80,7 +80,7 @@ const recipeData = [
     protein: 1
   },
   {
-    id: 775666,
+    spoonacular_id: 775666,
     title: 'Easy Homemade Apple Fritters',
     image: 'https://spoonacular.com/recipeImages/775666-312x231.jpg',
     calories: 148.29,
@@ -93,7 +93,7 @@ const recipeData = [
     protein: 1.86
   },
   {
-    id: 73420,
+    spoonacular_id: 73420,
     title: 'Apple Or Peach Strudel',
     image: 'https://spoonacular.com/recipeImages/73420-312x231.jpg',
     calories: 249.07,
@@ -106,7 +106,7 @@ const recipeData = [
     protein: 2.75
   },
   {
-    id: 641803,
+    spoonacular_id: 641803,
     title: 'Easy & Delish! ~ Apple Crumble',
     image: 'https://spoonacular.com/recipeImages/641803-312x231.jpg',
     calories: 2155.14,
@@ -119,7 +119,7 @@ const recipeData = [
     protein: 15.33
   },
   {
-    id: 632660,
+    spoonacular_id: 632660,
     title: 'Apricot Glazed Apple Tart',
     image: 'https://spoonacular.com/recipeImages/632660-312x231.jpg',
     calories: 657.51,
