@@ -16,6 +16,14 @@ viewRouter.get('/dashboard', async (req, res) => {
   }
 });
 
+viewRouter.get('/profile', async (req, res) => {
+  try {
+    res.render('profile', { loggedIn: req.session.loggedIn });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 viewRouter.get('/search', async (req, res) => {
   try {
     res.render('search', { loggedIn: req.session.loggedIn });
