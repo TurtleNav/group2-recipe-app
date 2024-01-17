@@ -59,6 +59,7 @@ async function startIngredientsearch(ingredientsList, numberOfRecipes) {
     }
 }
 
+//INIT
 startIngredientsearch();
 
 module.exports = startIngredientsearch;
