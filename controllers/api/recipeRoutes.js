@@ -12,7 +12,7 @@ const queryParams = new Map([
   ['sodium', ['minSodium', 'maxSodium']],
   ['cholesterol', ['minCholesterol', 'maxCholesterol']],
   ['sugar', ['minSugar', 'maxSugar']],
-  ['saturated_fat', ['minSaturatedFat', 'maxSaturatedFat']]
+  ['saturated_fat', ['minSaturatedFat', 'maxSaturatedFat']],
 ]);
 
 /*
@@ -96,9 +96,13 @@ router.get('/byuser', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const newRecipeData = await Recipe.create(req.body);
-
-  res.json(newRecipeData);
+  try {
+    const newRecipeData = await Recipe.create(req.body);
+    res.json(newRecipeData);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
 });
 
 module.exports = router;
