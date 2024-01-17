@@ -133,7 +133,21 @@ const recipeData = [
   },
 ];
 
-const seedRecipes = () => Recipe.bulkCreate(recipeData);
+//const seedRecipes = () => Recipe.bulkCreate(recipeData);
+const seedRecipes = () => {
+  let results = [];
+  const userData = require('./userData');
+  for (let id=1; id<=userData.length; id++) {
+    for (const recipe of recipeData.slice()) {
+      if (Math.random() < 0.5) {
+        recipe.user_id = id;
+        results.push(recipe);
+      }
+    }
+  }
+  console.log('results ----> ', userData);
+  return Recipe.bulkCreate(results);
+};
 
 // Get a random number of random recipes by iterating through all the recipes
 // stored in recipeData and flipping a coin on if it should be returned
@@ -147,5 +161,5 @@ function getRandomRecipes() {
   }
   return results;
 }
-console.log(getRandomRecipes());
+
 module.exports = {getRandomRecipes, seedRecipes};
