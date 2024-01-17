@@ -3,11 +3,11 @@ const fetch = require('node-fetch');
 
 const ranking = 1;
 
-function fetchRecipesbyIngredients(ingredientsList, numberOfRecipes) {
+async function fetchRecipesbyIngredients(ingredientsList='flour,eggs,apples', numberOfRecipes=3) {
   const apiKey = process.env.API_KEY;
   const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsList}&number=${numberOfRecipes}&ranking=${ranking}&apiKey=${apiKey}`;
 
-  return fetch(apiUrl)
+  return await fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
       const recipeInfo = data.map(recipe => ({
@@ -48,12 +48,13 @@ function fetchRecipesbyIngredients(ingredientsList, numberOfRecipes) {
             console.error('Error fetching nutrition data:', error);
           });
       });
-
-      return Promise.all(nutritionRequests).then(() => recipeInfo);
+     
+      return nutritionRequests
     })
     .catch(error => {
       console.error('Error fetching data:', error);
-      throw error; // Re-throw the error for handling at the higher level if needed
+      throw error; 
     });
 }
   
+console.log(fetchRecipesbyIngredients())

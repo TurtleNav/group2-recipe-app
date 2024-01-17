@@ -10,7 +10,7 @@ function fetchRecipesWithParameters(userSearch, maxCalories, numberOfResults) {
 
   let fetchedData = [];
   let recipeInfo = [];
-  let nutritionInformationRaw = [];
+ 
 
   return fetch(apiUrl)
     .then(response => response.json())
@@ -29,7 +29,7 @@ function fetchRecipesWithParameters(userSearch, maxCalories, numberOfResults) {
     })
     .catch(error => {
       console.error('Error fetching data:', error);
-      throw error; // Re-throw the error for handling at the higher level if needed
+      throw error; 
     });
 }
 
