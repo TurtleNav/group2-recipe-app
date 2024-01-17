@@ -133,18 +133,20 @@ const recipeData = [
   },
 ];
 
-//const seedRecipes = () => Recipe.bulkCreate(recipeData);
+// Iterate through every user and randomly assign seed recipes to them
+// Duplicate recipes are allowed
 const seedRecipes = () => {
   let results = [];
-  const {userData} = require('./userData');
-  console.log('userData length ----> ', userData.length);
+  const {userData} = require('./userData'); // Import userData so we can see how many users that exist
   for (let id=1; id<=userData.length; id++) {
     for (const recipe of recipeData) {
+    // Do a coin toss on whether or not a recipe is added
       if (Math.random() < 0.5) {
-        // Source of some errors. We MUST copy the recipe object instead of
-        // working with the original due to JS object's are passed-by-reference
-        const recipeCopy = Object.create(recipe);
-        console.log('recipeCopy ---> ', recipeCopy);
+        // Source of some errors. We MUST make a deep copy the recipe object instead of
+        // working with the original due to JS object's being passed-by-reference
+        // See the link for more info on this implementation
+        // https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy
+        const recipeCopy = JSON.parse(JSON.stringify(recipe));
         recipeCopy.user_id = id;
         results.push(recipeCopy);
       }
@@ -153,17 +155,4 @@ const seedRecipes = () => {
   return Recipe.bulkCreate(results);
 };
 
-// Get a random number of random recipes by iterating through all the recipes
-// stored in recipeData and flipping a coin on if it should be returned
-function getRandomRecipes() {
-  let results = [];
-  for (const recipe of recipeData) {
-    // Do a coin toss on whether or not a recipe is added
-    if (Math.random() < 0.5) {
-      results.push(recipe);
-    }
-  }
-  return results;
-}
-
-module.exports = {getRandomRecipes, seedRecipes};
+module.exports = seedRecipes;
