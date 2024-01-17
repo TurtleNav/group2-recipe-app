@@ -26,7 +26,11 @@ viewRouter.get('/dashboard', async (req, res) => {
 
 viewRouter.get('/profile', async (req, res) => {
   try {
-    res.render('profile', { loggedIn: req.session.loggedIn });
+    res.render('profile', {
+      loggedIn: req.session.loggedIn,
+      email: req.session.user.email,
+      name: req.session.user.name,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
