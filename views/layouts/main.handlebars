@@ -46,10 +46,17 @@
                     Menu
                   </a>
                   <ul class='dropdown-menu'>
-                    <li><a
-                        class='dropdown-item'
-                        href='/dashboard'
-                      >Dashboard</a></li>
+                    {{#if loggedIn}}
+                      <li><a
+                          class='dropdown-item'
+                          href='/dashboard'
+                        >Dashboard</a></li>
+                    {{else}}
+                      <li><a
+                          class='dropdown-item'
+                          href='/login'
+                        >Dashboard</a></li>
+                    {{/if}}
                     <li><a class='dropdown-item' href='/search'>Search</a></li>
                     <li><hr class='dropdown-divider' /></li>
                     <li><a class='dropdown-item' href='/'>Home</a></li>
