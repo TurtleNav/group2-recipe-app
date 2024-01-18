@@ -11,11 +11,11 @@ Link to deployed application: https://github.com/TurtleNav/group2-recipe-app
 
 
 - **Setup**
-- 1. Run MYSQL
-  2. 'SOURCE db/schema.sql'
-  3. Close MYSQL
-  4. 'npm run seed'
-  5. 'npm start'
+1. Run MYSQL
+2. 'SOURCE db/schema.sql'
+3. Close MYSQL
+4. 'npm run seed'
+5. 'npm start'
 
 
 - **Spoonacular API Key (`apiKey`):** Replace with your own API key.
