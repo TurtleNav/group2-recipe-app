@@ -6,26 +6,36 @@
       rule to decrease font size with decreasing window size
 
 */
-// TODO: rename import whenever fetchIngredientsv2 is renamed
-/* eslint-disable */
-const {fetchRecipesbyIngredients: init} = require('./fetchIngredientsv2');
-/* eslint-enable */
 
+// api/searchByIngredients
+// api/searchByNutrients
 
-const searchSelect = document.getElementById('search-method');
+const searchSelect = document.getElementById('search-select');
 const searchForm = document.getElementById('search-form');
+const searchInput = document.getElementById('search-input');
 
 // Global variable representing the recipe search method
 // 1: searchByIngredient | 2: searchByNutrient
 let searchMethod;
 
 // search method when 'Search By Ingredient' is selected
-function searchByIngredient() {
+async function searchByIngredient() {
   console.log('searching by ingredients...');
+  console.log(searchInput.text);
+  try {
+    const response = await fetch('/api/searchByIngredients', {
+      method: 'POST',
+      body: {}
+    });
+    const result = await response.json();
+    console.log('result ----> ', result);
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 // search method when 'Search By Nutrient' is selected
-function searchByNutrient() {
+async function searchByNutrient() {
   console.log('searching by nutrients...');
 }
 
