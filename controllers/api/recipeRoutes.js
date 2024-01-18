@@ -40,7 +40,7 @@ router.get('/', async (req, res) => {
       let queryObj;
       for (const param of params) {
         if (Object.hasOwn(req.query, param)) {
-          const paramValue = parseInt(req.query[param]);
+          const paramValue = parseFloat(req.query[param]);
 
           if (paramValue) {
             if (!queryObj) {
