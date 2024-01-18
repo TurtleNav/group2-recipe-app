@@ -41,7 +41,6 @@ header {
 
 
 main {
-    /* text-shadow: 0px 0px 3px black; */
     min-height: 70vh;
 }
 
@@ -52,6 +51,8 @@ main {
 .card {
     background-color: var(--darkblue);
     color: var(--orange);
+    border-radius: 12px;
+    box-shadow: 0px 0px 12px var(--orange);
 }
 
 .card-title {
