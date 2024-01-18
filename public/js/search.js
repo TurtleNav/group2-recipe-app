@@ -31,7 +31,7 @@ function makeResultCard(recipe, i) {
             <div class="row g-0">
               <div class="col-md-4">
                 <img src="${recipe.image}" class="img-fluid rounded" alt="..." style="margin: 20px 6px 6px 6px">
-                <button type="button" id="recipe${i}">Save Recipe</button>
+                <button type="button" class="btn btn-primary" id="recipe${i}">Save Recipe</button>
               </div>
               <div class="col-md-8">
                 <div class="card-body">
