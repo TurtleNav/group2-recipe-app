@@ -10,7 +10,7 @@
 // api/searchByIngredients
 // api/searchByNutrients
 
-const searchSelect = document.getElementById('search-select');
+//const searchSelect = document.getElementById('search-select');
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
 
@@ -56,10 +56,6 @@ function makeResultCard(recipe, i) {
 </div>`;
 }
 
-// Global variable representing the recipe search method
-// 1: searchByIngredient | 2: searchByNutrient
-let searchMethod;
-
 // search method when 'Search By Ingredient' is selected
 // assuming user has already provided comma separated values:
 async function searchByIngredient() {
@@ -77,12 +73,15 @@ async function searchByIngredient() {
     console.log('result --> ', result);
 
     resultsDiv.innerHTML = result.map((recipe, i) => makeResultCard(recipe, i)).join('\n');
-    //resultsDiv.innerHTML = result.map((recipe) => makeCard(recipe.title)).join('\n');
-    //await response.json();
   } catch (err) {
     console.error(err);
   }
 }
+
+// Global variable representing the recipe search method
+// 1: searchByIngredient | 2: searchByNutrient
+const searchMethod = searchByIngredient;
+
 
 // search method when 'Search By Nutrient' is selected
 async function searchByNutrient() {
@@ -102,6 +101,7 @@ function toggleOffNutrientParams() {
 
 // Whenever an option is selected, reassign the global searchMethod variable
 // fix this event listener at some point
+/*
 searchSelect.addEventListener('change', () => {
   switch (searchSelect.selectedIndex) {
   case 1:
@@ -116,6 +116,7 @@ searchSelect.addEventListener('change', () => {
   }
   toggleOffNutrientParams();
 });
+*/
 
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
