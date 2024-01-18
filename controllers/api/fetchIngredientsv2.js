@@ -1,7 +1,7 @@
 require('dotenv').config();
 const fetch = require('node-fetch');
 
-async function fetchRecipesbyIngredients(ingredientsList = 'flour,eggs,apples', numberOfRecipes = 3) {
+async function fetchRecipesbyIngredients(ingredientsList, numberOfRecipes) {
   try {
     const apiKey = process.env.API_KEY;
     const ranking = 1; // Set ranking to 1 to maximize available ingredients
@@ -9,6 +9,11 @@ async function fetchRecipesbyIngredients(ingredientsList = 'flour,eggs,apples', 
     const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsList}&number=${numberOfRecipes}&ranking=${ranking}&apiKey=${apiKey}`;
 
     const recipeData = await fetch(apiUrl).then(response => response.json());
+
+    if (recipeData.status === 'failure') {
+      console.log(recipeData.message);
+      throw new Error('No/invalid API key in .env file. Make sure to name it API_KEY');
+    }
     const recipeInfo = await Promise.all(
       recipeData.map(async recipe => {
         const nutritionUrl = `https://api.spoonacular.com/recipes/${recipe.id}/nutritionWidget.json?apiKey=${apiKey}`;
@@ -50,7 +55,7 @@ async function fetchRecipesbyIngredients(ingredientsList = 'flour,eggs,apples', 
 async function startIngredientsearch(ingredientsList, numberOfRecipes) {
     try {
       const recipeInfo = await fetchRecipesbyIngredients(ingredientsList, numberOfRecipes);
-      console.log(recipeInfo)
+      console.log(recipeInfo);
       return recipeInfo;
    
     } catch (error) {
@@ -58,8 +63,5 @@ async function startIngredientsearch(ingredientsList, numberOfRecipes) {
       console.error('Error fetching recipes:', error);
     }
 }
-
-//INIT
-startIngredientsearch();
 
 module.exports = startIngredientsearch;
