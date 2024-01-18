@@ -29,7 +29,7 @@ async function fetchRecipesbyIngredients(ingredientsList = 'flour,eggs,apples', 
           } else if (nutrient.name === 'Saturated Fat') {
             recipe.saturatedFat = nutrient.amount;
           } else if (nutrient.name === 'Carbohydrates') {
-            recipe.carbohydrates = nutrient.amount;3
+            recipe.carbohydrates = nutrient.amount;
           } else if (nutrient.name === 'Protein') {
             recipe.protein = nutrient.amount;
           }
