@@ -6,8 +6,8 @@ const saveRecipeFormHandler = async (event) => {
   if (saveRecipeInput) {
     const response = await fetch('', {
       method: 'POST',
-      headers: { 
-        'Accept': 'application/json', 
+      headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ recipe: saveRecipeInput })
@@ -16,7 +16,7 @@ const saveRecipeFormHandler = async (event) => {
     if (response.ok) {
       const recipes = await response.json();
 
-      console.log(recipes); 
+      console.log(recipes);
     } else {
       alert('Failed to save recipe.');
     }
