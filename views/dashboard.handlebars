@@ -1,27 +1,41 @@
-<div class='container text-center'>
-  <div class='row align items-center'>
-    <div class='col'>
-      <div class='card'>
-        <div class='card-body'>
-          <h2 class='card-title'>Recipe List</h2>
-          <div class="card">
-            {{#each recipes as |recipe|}}
-            {{recipe.title}}
-            {{/each}}
+<div class="accordion" id="accordionExample">
+  {{#each recipes as |recipe|}}
+  <!-- Accordion item for each recipe -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="heading{{@index}}">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{@index}}" aria-expanded="true" aria-controls="collapse{{@index}}">
+        {{recipe.title}}
+      </button>
+    </h2>
+    <div id="collapse{{@index}}" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+      <div class="accordion-body" style="background-color: #6a95c2;">
+        <!-- Content for each Recipe -->
+        <div class="row justify-content-center">
+          <div class="card border-warning mb-3" style="max-width: 540px; padding:3px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src={{recipe.image}} class="img-fluid rounded" alt="..." style="margin: 20px 6px 6px 6px">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{recipe.title}}</h5>
+                  <h6 class="card-subtitle mb-2">Nutrition Facts</h6>
+                  <hr class="dotted">
+                  <p class="card-text">Calories: {{recipe.fat}}k cal</p>
+                  <p class="card-text">Carbohydrates: {{recipe.carbohydrates}}g</p>
+                  <p class="card-text">Fat: {{recipe.fat}}g</p>
+                  <p class="card-text">Protein: {{recipe.protein}}g</p>
+                  <p class="card-text">Sodium: {{recipe.sodium}}mg</p>
+                  <p class="card-text">Cholesterol: {{recipe.cholesterol}}mg</p>
+                  <p class="card-text">Sugar: {{recipe.sugar}}g</p>
+                  <p class="card-text">Saturated Fat: {{recipe.saturatedFat}}g</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class='col'>
-      <div class='card'>
-        <div class='card-body'>
-          <h2 class='card-title'>Recipe Details</h2>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime
-            nulla vel, blanditiis excepturi a sapiente quidem odio magnam
-            voluptas assumenda temporibus at qui ipsa eligendi, reiciendis sequi
-            eius molestiae repudiandae.</p>
-        </div>
-      </div>
-    </div>
   </div>
+  {{/each}}
 </div>
