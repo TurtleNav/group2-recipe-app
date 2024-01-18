@@ -19,13 +19,13 @@ const searchInput = document.getElementById('search-input');
 let searchMethod;
 
 // search method when 'Search By Ingredient' is selected
+// assuming user hsa already provided comma separated values:
 async function searchByIngredient() {
   console.log('searching by ingredients...');
-  console.log(searchInput.text);
   try {
     const response = await fetch('/api/searchByIngredients', {
       method: 'POST',
-      body: {}
+      body: {'ingredientsList': searchInput.value}
     });
     const result = await response.json();
     console.log('result ----> ', result);
@@ -51,6 +51,7 @@ function toggleOffNutrientParams() {
 }
 
 // Whenever an option is selected, reassign the global searchMethod variable
+// fix this event listener at some point
 searchSelect.addEventListener('change', () => {
   switch (searchSelect.selectedIndex) {
   case 1:
