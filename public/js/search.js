@@ -14,7 +14,7 @@
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
 
-const resultsDiv = document.querySelectorAll('div.col')[1];
+const resultsDiv = document.getElementById('results');
 
 function makeResultCard(recipe, i) {
   return `<div class="accordion" id="accordionExample">
@@ -61,9 +61,10 @@ function makeResultCard(recipe, i) {
 async function searchByIngredient() {
   console.log('searching by ingredients...');
   try {
+    const userInput = searchInput.value.replaceAll(' ', ','); // sanitize user input
     const response = await fetch('/api/searchByIngredients', {
       method: 'POST',
-      body: JSON.stringify({'ingredientsList': searchInput.value}),
+      body: JSON.stringify({'ingredientsList': userInput}),
       headers: {
         'Content-Type': 'application/json',
       },

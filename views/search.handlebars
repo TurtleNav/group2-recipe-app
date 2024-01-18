@@ -22,13 +22,15 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <h2 class="card-title">Results</h2>
-                    {{#if results}}
-                        {{#each results as |result|}}
-                            <p>{{result.title}}</p>
-                        {{/each}}
-                    {{else}}
-                        <p>No results</p>
-                    {{/if}}
+                    <div id="results">
+                        {{#if results}}
+                            {{#each results as |result|}}
+                                <p>{{result.title}}</p>
+                            {{/each}}
+                        {{else}}
+                            <p>No results</p>
+                        {{/if}}
+                    </div>
                 </div>
             </div>
         </div>
