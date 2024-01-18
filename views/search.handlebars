@@ -1,41 +1,41 @@
- <div class="container text-center">
-    <div class="row align-items-center">
-        <div class="row">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h2 class="card-title">Search</h2>
-                    <p class="card-subtitle">-Use commas with no spaces to separate ingredients-</p>
-                    <form class="d-flex" role="search" id="search-form">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
-                    <!--
+<div class='container text-center'>
+  <div class='row align-items-center'>
+    <div class='row'>
+      <div class='card mb-3'>
+        <div class='card-body'>
+          <h2 class='card-title'>Search</h2>
+          <p class='card-subtitle'>-Use commas with no spaces to separate
+            ingredients-</p>
+          <form class='d-flex' role='search' id='search-form'>
+            <input
+              class='form-control me-2'
+              type='search'
+              placeholder='Search'
+              aria-label='Search'
+              id='search-input'
+            />
+            <!--
                     <select class="form-select" aria-label="Default select example" id="search-select">
                         <option disabled selected>Select a Search Method</option>
                         <option value="1">Search By Ingredients</option>
                         <option value="2">Search By Nutrients</option>
                     </select>
                     -->
-                    <button class="btn btn-primary" type="submit">Search</button>
-                    </form>       
-                </div>
-            </div>
+            <button class='btn btn-primary' type='submit'>Search</button>
+          </form>
         </div>
-        <div class="row">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h2 class="card-title">Results</h2>
-                    <div id="results">
-                        {{#if results}}
-                            {{#each results as |result|}}
-                                <p>{{result.title}}</p>
-                            {{/each}}
-                        {{else}}
-                            <p>No results</p>
-                        {{/if}}
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
- </div>
+    <div class='row'>
+      <div class='card mb-3'>
+        <div class='card-body'>
+          <h2 class='card-title'>Results</h2>
+          <div id='results'>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
- <script src="/js/search.js"></script>
+<script src='/js/search.js'></script>
