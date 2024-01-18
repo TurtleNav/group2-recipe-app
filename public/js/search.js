@@ -14,6 +14,48 @@ const searchSelect = document.getElementById('search-select');
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
 
+const resultsDiv = document.querySelectorAll('div.col')[1];
+
+function makeResultCard(recipe, i) {
+  return `<div class="accordion" id="accordionExample">
+<!-- Accordion item for each recipe -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="heading${i}">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">${recipe.title}</button>
+    </h2>
+    <div id="collapse${i}" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+      <div class="accordion-body" style="background-color: #6a95c2;">
+        <!-- Content for each Recipe -->
+        <div class="row justify-content-center">
+          <div class="card border-warning mb-3" style="max-width: 540px; padding:3px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="${recipe.image}" class="img-fluid rounded" alt="..." style="margin: 20px 6px 6px 6px">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">${recipe.title}</h5>
+                  <h6 class="card-subtitle mb-2">Nutrition Facts</h6>
+                  <hr class="dotted">
+                  <p class="card-text">Calories: ${recipe.calories}kcal</p>
+                  <p class="card-text">Carbohydrates: ${recipe.carbohydrates}g</p>
+                  <p class="card-text">Fat: ${recipe.fat}g</p>
+                  <p class="card-text">Protein: ${recipe.protein}g</p>
+                  <p class="card-text">Sodium: ${recipe.sodium}mg</p>
+                  <p class="card-text">Cholesterol: ${recipe.cholesterol}mg</p>
+                  <p class="card-text">Sugar: ${recipe.sugar}g</p>
+                  <p class="card-text">Saturated Fat: ${recipe.saturatedFat}g</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`;
+}
+
 // Global variable representing the recipe search method
 // 1: searchByIngredient | 2: searchByNutrient
 let searchMethod;
@@ -30,8 +72,13 @@ async function searchByIngredient() {
         'Content-Type': 'application/json',
       },
     });
-    //const result = JSON.parse(await response.json());
-    await response.json();
+    console.log('response ---> ', response);
+    const result = await response.json();
+    console.log('result --> ', result);
+
+    resultsDiv.innerHTML = result.map((recipe, i) => makeResultCard(recipe, i)).join('\n');
+    //resultsDiv.innerHTML = result.map((recipe) => makeCard(recipe.title)).join('\n');
+    //await response.json();
   } catch (err) {
     console.error(err);
   }

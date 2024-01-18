@@ -6,7 +6,8 @@ router.post('/', async (req, res) => {
     const ingredientsList = req.body.ingredientsList;
     const results = await startIngredientsearch(ingredientsList, 3);
     console.log('results ----> ', results);
-    res.render('search', {results: results});
+    res.status(200).json(results);
+    //res.render('search', {results: results});
     //window.location.reload();
     //res.status(200).json({message: 'hi'}); //.json(JSON.stringify(results));
   } catch (err) {
