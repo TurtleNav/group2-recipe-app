@@ -14,6 +14,9 @@ async function fetchRecipesbyIngredients(ingredientsList, numberOfRecipes) {
       console.log(recipeData.message);
       throw new Error('No/invalid API key in .env file. Make sure to name it API_KEY');
     }
+
+    console.log('API message -> ', recipeData.message);
+
     const recipeInfo = await Promise.all(
       recipeData.map(async recipe => {
         const nutritionUrl = `https://api.spoonacular.com/recipes/${recipe.id}/nutritionWidget.json?apiKey=${apiKey}`;

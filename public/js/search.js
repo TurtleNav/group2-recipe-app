@@ -17,7 +17,7 @@ const searchInput = document.getElementById('search-input');
 const resultsDiv = document.getElementById('results');
 
 function makeResultCard(recipe, i) {
-  return `<div class="accordion" id="accordionExample">
+  const result = `<div class="accordion" id="accordionExample">
 <!-- Accordion item for each recipe -->
   <div class="accordion-item">
     <h2 class="accordion-header" id="heading${i}">
@@ -31,6 +31,7 @@ function makeResultCard(recipe, i) {
             <div class="row g-0">
               <div class="col-md-4">
                 <img src="${recipe.image}" class="img-fluid rounded" alt="..." style="margin: 20px 6px 6px 6px">
+                <button type="button" id="recipe${i}">Save Recipe</button>
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -54,6 +55,21 @@ function makeResultCard(recipe, i) {
     </div>
   </div>
 </div>`;
+  const parentDiv = document.createElement('div');
+  parentDiv.innerHTML = result;
+  const buttonElement = parentDiv.querySelector(`#recipe${i}`);
+  buttonElement.addEventListener('click', async () => {
+    console.log('saved recipe: ', recipe.title);
+    const response = await fetch('/api/recipe', {
+      method: 'POST',
+      body: JSON.stringify(recipe),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    console.log(response);
+  });
+  return parentDiv;
 }
 
 // search method when 'Search By Ingredient' is selected
@@ -73,7 +89,10 @@ async function searchByIngredient() {
     const result = await response.json();
     console.log('result --> ', result);
 
-    resultsDiv.innerHTML = result.map((recipe, i) => makeResultCard(recipe, i)).join('\n');
+    for (let i=0; i<result.length; i++) {
+      resultsDiv.appendChild(makeResultCard(result[i], i));
+    }
+    //resultsDiv.innerHTML = result.map((recipe, i) => makeResultCard(recipe, i)).join('\n');
   } catch (err) {
     console.error(err);
   }
