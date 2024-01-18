@@ -97,7 +97,7 @@ router.get('/byuser', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const newRecipeData = await Recipe.create(req.body);
+    const newRecipeData = await Recipe.create({...req.body, user_id: req.session.user.id});
     res.json(newRecipeData);
   } catch (err) {
     console.log(err);

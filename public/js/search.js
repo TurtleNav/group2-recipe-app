@@ -10,14 +10,14 @@
 // api/searchByIngredients
 // api/searchByNutrients
 
-const searchSelect = document.getElementById('search-select');
+//const searchSelect = document.getElementById('search-select');
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
 
-const resultsDiv = document.querySelectorAll('div.col')[1];
+const resultsDiv = document.getElementById('results');
 
 function makeResultCard(recipe, i) {
-  return `<div class="accordion" id="accordionExample">
+  const result = `<div class="accordion" id="accordionExample">
 <!-- Accordion item for each recipe -->
   <div class="accordion-item">
     <h2 class="accordion-header" id="heading${i}">
@@ -31,6 +31,7 @@ function makeResultCard(recipe, i) {
             <div class="row g-0">
               <div class="col-md-4">
                 <img src="${recipe.image}" class="img-fluid rounded" alt="..." style="margin: 20px 6px 6px 6px">
+                <button type="button" id="recipe${i}">Save Recipe</button>
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -54,20 +55,32 @@ function makeResultCard(recipe, i) {
     </div>
   </div>
 </div>`;
+  const parentDiv = document.createElement('div');
+  parentDiv.innerHTML = result;
+  const buttonElement = parentDiv.querySelector(`#recipe${i}`);
+  buttonElement.addEventListener('click', async () => {
+    console.log('saved recipe: ', recipe.title);
+    const response = await fetch('/api/recipe', {
+      method: 'POST',
+      body: JSON.stringify(recipe),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    console.log(response);
+  });
+  return parentDiv;
 }
-
-// Global variable representing the recipe search method
-// 1: searchByIngredient | 2: searchByNutrient
-let searchMethod;
 
 // search method when 'Search By Ingredient' is selected
 // assuming user has already provided comma separated values:
 async function searchByIngredient() {
   console.log('searching by ingredients...');
   try {
+    const userInput = searchInput.value.replaceAll(' ', ','); // sanitize user input
     const response = await fetch('/api/searchByIngredients', {
       method: 'POST',
-      body: JSON.stringify({'ingredientsList': searchInput.value}),
+      body: JSON.stringify({'ingredientsList': userInput}),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -76,13 +89,19 @@ async function searchByIngredient() {
     const result = await response.json();
     console.log('result --> ', result);
 
-    resultsDiv.innerHTML = result.map((recipe, i) => makeResultCard(recipe, i)).join('\n');
-    //resultsDiv.innerHTML = result.map((recipe) => makeCard(recipe.title)).join('\n');
-    //await response.json();
+    for (let i=0; i<result.length; i++) {
+      resultsDiv.appendChild(makeResultCard(result[i], i));
+    }
+    //resultsDiv.innerHTML = result.map((recipe, i) => makeResultCard(recipe, i)).join('\n');
   } catch (err) {
     console.error(err);
   }
 }
+
+// Global variable representing the recipe search method
+// 1: searchByIngredient | 2: searchByNutrient
+const searchMethod = searchByIngredient;
+
 
 // search method when 'Search By Nutrient' is selected
 async function searchByNutrient() {
@@ -102,6 +121,7 @@ function toggleOffNutrientParams() {
 
 // Whenever an option is selected, reassign the global searchMethod variable
 // fix this event listener at some point
+/*
 searchSelect.addEventListener('change', () => {
   switch (searchSelect.selectedIndex) {
   case 1:
@@ -116,6 +136,7 @@ searchSelect.addEventListener('change', () => {
   }
   toggleOffNutrientParams();
 });
+*/
 
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
