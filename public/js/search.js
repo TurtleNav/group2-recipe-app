@@ -19,16 +19,19 @@ const searchInput = document.getElementById('search-input');
 let searchMethod;
 
 // search method when 'Search By Ingredient' is selected
-// assuming user hsa already provided comma separated values:
+// assuming user has already provided comma separated values:
 async function searchByIngredient() {
   console.log('searching by ingredients...');
   try {
     const response = await fetch('/api/searchByIngredients', {
       method: 'POST',
-      body: {'ingredientsList': searchInput.value}
+      body: JSON.stringify({'ingredientsList': searchInput.value}),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
-    const result = await response.json();
-    console.log('result ----> ', result);
+    //const result = JSON.parse(await response.json());
+    await response.json();
   } catch (err) {
     console.error(err);
   }
